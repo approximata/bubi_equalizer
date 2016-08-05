@@ -229,10 +229,11 @@ function initMap() {
           }
     for (var station in stations) {
             var bubiCircle = new google.maps.Circle({
-              strokeColor: 'green',
-              strokeOpacity: 1,
-              strokeWeight: 3,
-              fillOpacity: 0,
+              // strokeColor: '#FC0280',
+              strokeOpacity: 0,
+              // strokeWeight: 3,
+							fillColor: '#FC0280',
+              fillOpacity: 0.3,
               map: map,
               center: {lat: +stations[station].lat, lng: +stations[station].lng},
               radius: stations[station].max_bikes * 4

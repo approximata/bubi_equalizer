@@ -1,4 +1,7 @@
+'use strict;'
 var button = document.querySelector('button');
+
+var stations = [];
 
 function getBubiData(cb) {
 	var r = new XMLHttpRequest;
@@ -22,7 +25,6 @@ function getPrettyName(unique_name) {
 
 function getStations() {
 	getBubiData(function(cityXml) {
-		var stations = [];
 		for (var i=0; i < cityXml.childNodes.length; i++) {
 			var item = cityXml.childNodes.item(i);
 			stations.push({
@@ -40,5 +42,7 @@ function getStations() {
     return stations;
   });
 }
+
+
 
 button.addEventListener('click', getStations);

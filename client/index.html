@@ -7,7 +7,10 @@
     <link rel="icon" href="favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
-  <audio id="background-audio" autoplay loop src="song.mp3"></audio>
+  <audio id="background-audio" autoplay loop>
+     <source src="song.mp3">
+     <source src="song.wav">
+   </audio>
   <body>
     <div id='container'>
       <div class="mute-audio">

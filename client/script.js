@@ -1,17 +1,5 @@
 'use strict';
 
-var bubimap = {
-      roosevelt: {
-        center: {lat: 47.499329, lng: 19.046342},
-        bikes: 13
-      },
-      clark: {
-        center: {lat: 47.497584, lng: 19.040793},
-        bikes: 5
-      }
-    };
-
-
 function getBubiData(cb) {
 	var r = new XMLHttpRequest;
 	r.open("GET", "https://nextbike.net/maps/nextbike-live.xml?domains=mb", true);
@@ -47,15 +35,17 @@ function getStations(cb) {
 				distance: null,
 			});
 		}
-    console.log(stations);
     cb(stations);
   });
 }
 
+
+
+
+
 function initMap() {
   getStations(function(stations)
   {
-    console.log(stations);
     var styledMapType = new google.maps.StyledMapType(
       [
         {
@@ -191,7 +181,6 @@ function initMap() {
 
 
     for (var station in stations) {
-      console.log(stations[station].lat);
             var bubiCircle = new google.maps.Circle({
               strokeColor: '#FC0280',
               strokeOpacity: 1,
@@ -203,7 +192,6 @@ function initMap() {
             });
           }
     for (var station in stations) {
-      console.log(stations[station].lat);
             var bubiCircle = new google.maps.Circle({
               strokeColor: 'green',
               strokeOpacity: 1,

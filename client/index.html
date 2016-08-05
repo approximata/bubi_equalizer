@@ -1,15 +1,22 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>bubi equalizer</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
+  <audio id="background-audio" autoplay loop src="song.mp3"></audio>
   <body>
-    <main class="main">
-      <button type="button" name="button">ecco</button>
-
-    </main>
+    <div id='container'>
+      <div class="mute-audio">
+        <a href="#" onclick="document.querySelector('#background-audio').muted=true; return false">mute</a>
+      </div>
+    </div>
+    <div id="map"></div>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjXi9K1EioyCx9fIgXN4uUQwCdSVHz_vM&callback=initMap"
+    async defer></script>
   </body>
-
-  <script src="getxmlscript.js"></script>
 </html>

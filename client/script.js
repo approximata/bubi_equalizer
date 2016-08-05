@@ -195,11 +195,23 @@ function initMap() {
             var bubiCircle = new google.maps.Circle({
               strokeColor: '#FC0280',
               strokeOpacity: 1,
-              strokeWeight: 5,
+              strokeWeight: 3,
               fillOpacity: 0,
               map: map,
               center: {lat: +stations[station].lat, lng: +stations[station].lng},
-              radius: stations[station].num_bikes * 5
+              radius: stations[station].num_bikes * 4
+            });
+          }
+    for (var station in stations) {
+      console.log(stations[station].lat);
+            var bubiCircle = new google.maps.Circle({
+              strokeColor: 'green',
+              strokeOpacity: 1,
+              strokeWeight: 3,
+              fillOpacity: 0,
+              map: map,
+              center: {lat: +stations[station].lat, lng: +stations[station].lng},
+              radius: stations[station].max_bikes * 4
             });
           }
   });

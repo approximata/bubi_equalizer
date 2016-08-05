@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bubi equalizer</title>
+  </head>
+  <body>
+    <main class="main">
+      <button type="button" name="button">ecco</button>
+    </main>
+    <div class="react" id="react_container">
+
+    </div>
+  </body>
+  <script src="react.js"></script>
+  <!-- <script src="react-fetch.js"></script> -->
+  <script src="react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  <script type="text/babel">
+    var Bubi = React.createClass({
+      getInitialState: function() {
+        return {
+          stations: [],
+        };
+      },
+
+      componentDidMount: function() {
+        let that = this;
+        fetch('http://futar.bkk.hu/bkk-utvonaltervezo-api/ws/otp/api/where/bicycle-rental.json?key=apaiary-test&version=3&appVersion=apiary-1.0&includeReferences=true',
+        {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          mode: 'no-cors',
+          cache: 'default'
+        }).then(function(response){
+          return response.json();
+        }).then(function(response.data){
+          that.setState({stations: response.data});
+          console.log(response.data);
+        })
+      },
+
+      render: function () {
+        return ( <p>
+          kaki
+          </p>)
+        }
+    });
+    ReactDOM.render(
+    <Bubi />,
+    document.querySelector('.main')
+    );
+  </script>
+</html>

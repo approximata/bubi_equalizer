@@ -16,7 +16,7 @@ html, body {
 }
 
 #container {
-  z-index: 100;
+  z-index: 1;
   position: relative;
 }
 
@@ -35,4 +35,14 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.legend {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 70px;
+  height: 100px;
+  background: white;
+  border-radius: 12.5px;
 }

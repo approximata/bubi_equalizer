@@ -11,7 +11,7 @@ function getBubiData(cb) {
 }
 
 function getPrettyName(unique_name) {
-	var r = new RegExp('^\\d{4}[ -](.*)$');
+	var r = new RegExp(/^\\d{4}[ -](.*)$/);
 	var match = r.exec(unique_name);
 	if (match != null) {
 		return match[1].trim();
@@ -39,9 +39,45 @@ function getStations(cb) {
   });
 }
 
+function calSum(cb) {
+  getStations(function(stations){
+      if (stations) {
+       cb(null, stations.reduce((sum, stations) => (stations.max_bikes !== 0) ? (sum + +stations.max_bikes) : 0, 0));
+       return;
+      }
+      cb('stations not found', null);
+      return;
+  });
+}
 
+calSum(function(err, cont){
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log(cont);
+  return;
+});
 
+function calSumBike(cb) {
+  getStations(function(stations){
+      if (stations) {
+       cb(null, stations.reduce((sum, stations) => (stations.num_bikes !== 0) ? (sum + +stations.num_bikes) : 0, 0));
+       return;
+      }
+      cb('stations not found', null);
+      return;
+  });
+}
 
+calSumBike(function(err, cont){
+  if(err){
+    console.log(err);
+    return;
+  }
+  console.log(cont);
+  return;
+});
 
 function initMap() {
   getStations(function(stations)
